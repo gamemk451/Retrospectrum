@@ -7,23 +7,39 @@ loadSprite("fly", "fly.png")
 
 // --- Loading Screen ---
 scene("loading", async () => {
-  add([
+  // Set black background
+  setBackground(Color.fromHex("#000000"))
+
+  const loadingText = add([
     text("Loading Retrospectrum...", {
-      size: 24,
+      size: 32,
+      font: "sink",
     }),
     pos(center()),
     anchor("center"),
+    scale(0),
   ])
 
-  // simulate load delay
-  await wait(1)
+  // Dramatic zoom-in effect
+  tween(
+    loadingText.scale,
+    vec2(1),
+    1, // 1 second
+    (newVal) => loadingText.scale = newVal,
+    easings.easeOutBack
+  )
 
-  // Go to menu after loading
+  // simulate dramatic pause
+  await wait(2)
+
   go("menu")
 })
 
 // --- Main Menu Scene ---
 scene("menu", () => {
+  // Set a background color (optional)
+  setBackground(Color.fromHex("#1a1a1a"))
+
   add([
     text("RETROSPECTRUM", {
       size: 32,
@@ -70,11 +86,11 @@ scene("game", () => {
   })
 
   onKeyDown("up", () => {
-	  Player.move(0, -SPEED)
+    Player.move(0, -SPEED)
   })
 
   onKeyDown("down", () => {
-	  Player.move(0, SPEED)
+    Player.move(0, SPEED)
   })
 })
 
