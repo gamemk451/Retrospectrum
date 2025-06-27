@@ -1,6 +1,6 @@
 kaboom()
 
-setGravity(2400)
+//setGravity(2400)
 
 loadSprite("fly", "fly.png")
 
