@@ -68,6 +68,14 @@ scene("game", () => {
   onKeyDown("left", () => {
     Player.move(-SPEED, 0)
   })
+
+  onKeyDown("up", () => {
+	  Player.move(0, -SPEED)
+  })
+
+  onKeyDown("down", () => {
+	  Player.move(0, SPEED)
+  })
 })
 
 // Start with loading screen
