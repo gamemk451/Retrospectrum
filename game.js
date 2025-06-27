@@ -2,6 +2,8 @@ kaboom()
 
 //setGravity(2400)
 
+const MOVEMENT_SPEED = 240
+
 loadSprite("fly", "fly.png")
 
 const Player = add([
@@ -11,3 +13,7 @@ const Player = add([
   scale(4),
   anchor("center"),
 ])
+
+onKeyDown("right", () => {
+    bean.move(-SPEED, 0)
+})
